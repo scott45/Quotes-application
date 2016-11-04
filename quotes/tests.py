@@ -71,26 +71,54 @@ class QuotesTest(unittest.TestCase):
 
         # user clicks on the Add Quote link
 
-        add_quote_link = self.browser.find_element_by_link_text('Add Quote')
+        add_quote_link = self.browser.find_element_by_link_text('Add')
         add_quote_link.click()
 
         # user fills out the form
-        self.browser.find_element_by_name('first_name').send_keys("Michael")
-        self.browser.find_element_by_name('last_name').send_keys("Herman")
-        self.browser.find_element_by_name('email').send_keys("michael@realpython.com")
-        self.browser.find_element_by_name('address').send_keys("2227 Lexington Ave")
+        self.browser.find_element_by_name('title').send_keys(' "Stay hungry, Stay foolish" Steve Jobs')
+        self.browser.find_element_by_name('submitter').send_keys("Quotes")
+        self.browser.find_element_by_name('description').send_keys("What an amazing quote")
 
         # user clicks the save button
 
         self.browser.find_element_by_css_selector("input[value='Save']").click()
 
-        # the Person has been added
+        # the Quote has been added
 
         body = self.browser.find_element_by_tag_name('body')
-        self.assertIn('Herman, Michael', body.text)
+        self.assertIn('Stay hungry', body.text)
 
         # user returns to the main admin screen
-        
+
+        home_link = self.browser.find_element_by_link_text('Home')
+        home_link.click()
+
+        # user clicks on the Quotes link
+
+        quotes_links = self.browser.find_elements_by_link_text('Quotes')
+        quotes_links[0].click()
+
+        # user clicks on the Add Quote link
+
+        add_quote_link = self.browser.find_element_by_link_text('Add')
+        add_quote_link.click()
+
+        # user fills out the form
+        self.browser.find_element_by_name('title').send_keys(' "You can be anything in this world" Apostle Grace L')
+        self.browser.find_element_by_name('submitter').send_keys("Quotes")
+        self.browser.find_element_by_name('description').send_keys("What an amazing quote")
+
+        # user clicks the save button
+
+        self.browser.find_element_by_css_selector("input[value='Save']").click()
+
+        # the Quote has been added
+
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('You can be anything', body.text)
+
+        # user returns to the main admin screen
+
         home_link = self.browser.find_element_by_link_text('Home')
         home_link.click()
 
