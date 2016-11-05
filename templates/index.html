@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% load staticfiles %}
+
+{% block title %}{{ quotes }}{% endblock %}
+
+{% block body_block %}
+    <h1><strong>Here is what they said;</strong></h1>
+          {% if quotes %}
+            <ul>
+                {% for quote in quotes %}
+                 <!-- Following line changed to add an HTML hyperlink -->
+                <li><a href="{{ quote_list}}">{{ quote }}</a></li><br/>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No quotes yet.</strong>
+        {% endif %}
+{% endblock %}
