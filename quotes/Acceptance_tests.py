@@ -6,6 +6,7 @@ __author__ = 'Scott Businge'
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
+# from django.core.urlresolvers import resolve
 from .models import Quote
 
 
@@ -132,15 +133,32 @@ class QuotesTest(unittest.TestCase):
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Thanks for spending some quality time with the Web site today.', body.text)
 
+        '''
+
         # index page for registering
+
+        found = resolve('/')
+        self.assertEqual(found.func, index)
 
         # registers
 
+        found = resolve('/register/')
+        self.assertEqual(found.func, register)
+
         # Home page
 
-        # Contact ua page
+        found = resolve('/home/')
+        self.assertEqual(found.func, home_page)
+
+        # Contact us page
+
+        found = resolve('/contact/')
+        self.assertEqual(found.func, contact)
 
         # Enabled to add Quote
+
+        found = resolve('/add_quote/')
+        self.assertEqual(found.func, add_quote)
 
         # Quote saved
 
@@ -148,9 +166,20 @@ class QuotesTest(unittest.TestCase):
 
         # Comment
 
+        found = resolve('/comment/')
+        self.assertEqual(found.func, comment)
+
         # Logout success
 
+        found = resolve('/logout/')
+        self.assertEqual(found.func, logout)
+
         # Resolved to login url
+
+        found = resolve('/index/')
+        self.assertEqual(found.func, index)
+
+        '''
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
