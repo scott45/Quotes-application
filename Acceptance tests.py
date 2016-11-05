@@ -1,11 +1,12 @@
-# unit tests for app
+__author__ = 'Scott Businge'
+
 # Remember: Functional tests are the ultimate indicator of whether your Project works or not,
 # while Unit tests are the means to help you reach that end. This will all make sense soon.
 
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.keys import Keys
 import unittest
-# from .models import Quote
+from .models import Quote
 
 
 class QuotesTest(unittest.TestCase):
@@ -24,8 +25,6 @@ class QuotesTest(unittest.TestCase):
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Django', body.text)
 
-
-'''
         # User opens admin page
 
         self.browser.get('http://localhost:8000/admin/')
@@ -132,8 +131,6 @@ class QuotesTest(unittest.TestCase):
         self.browser.find_element_by_link_text('Log out').click()
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Thanks for spending some quality time with the Web site today.', body.text)
-
-'''
 
         # index page for registering
 
