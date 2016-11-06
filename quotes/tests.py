@@ -5,6 +5,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
+from django.template.loader import render_to_string
 
 from .views import index
 
@@ -18,6 +19,5 @@ class IndexPageTest(TestCase):
     def test_index_returns_right_html(self):
         request = HttpRequest()
         response = index(request)
-        self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn(b'<title>quotes</title>', response.content)
-        self.assertTrue(response.content.endswith(b'</html>'))
+        expected_html = render_to_string('index.html')
+        self.assertEqual(response.content.decode(), expected_html)
