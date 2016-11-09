@@ -13,21 +13,21 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Quote
-    template_name = "detail.html"
+    template_name = "quotes/detail.html"
 
 
-class DepartmentCreate(CreateView):
+class QuoteCreate(CreateView):
     model = Quote
-    fields = ['Name', 'Leader', 'Department_logo', 'is_favorite']
-    template_name = 'department_form.html'
+    fields = ['title', 'submitter', 'submitted_on', 'description']
+    template_name = 'quotes/quotes_form.html'
 
 
-class DepartmentUpdate(CreateView):
+class QuoteUpdate(CreateView):
     model = Quote
-    fields = ['Name', 'Leader', 'Department_logo', 'is_favorite']
+    fields = ['title', 'submitter', 'submitted_on', 'description']
 
 
-class DepartmentDelete(DeleteView):
+class QuoteDelete(DeleteView):
     model = Quote
     success_url = reverse_lazy('index')
 
