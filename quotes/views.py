@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 
 class IndexView(generic.ListView):
     template_name = "index.html"
-    context_object_name = "quotes"
+    context_object_name = "all_quotes"
 
     def get_queryset(self):
         return Quote.objects.all()
@@ -19,13 +19,13 @@ class DetailView(generic.DetailView):
 
 class QuoteCreate(CreateView):
     model = Quote
-    fields = ['title', 'submitter', 'submitted_on', 'description']
+    fields = ['title', 'submitter', 'description']
     template_name = 'quotes/quotes_form.html'
 
 
 class QuoteUpdate(UpdateView):
     model = Quote
-    fields = ['title', 'submitter', 'submitted_on', 'description']
+    fields = ['title', 'submitter', 'description']
 
 
 class QuoteDelete(DeleteView):

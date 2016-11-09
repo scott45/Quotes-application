@@ -8,9 +8,9 @@
     <h1><strong>Here is what they said;</strong></h1>
           {% if quotes %}
             <ul>
-                {% for quote in quotes %}
+                {% for quote in all_quotes %}
                  <!-- Following line changed to add an HTML hyperlink -->
-                <li><a href="{{ quote_list}}">{{ quote }}</a></li><br/>
+                <li><a href="{% url 'detail' quote.id %}">{{ quote.title }}</a></li><br/>
                 {% endfor %}
             </ul>
         {% else %}
