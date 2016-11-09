@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Quote
 from django.core.urlresolvers import reverse_lazy
 
+
 class IndexView(generic.ListView):
     template_name = "index.html"
     context_object_name = "quotes"
@@ -22,7 +23,7 @@ class QuoteCreate(CreateView):
     template_name = 'quotes/quotes_form.html'
 
 
-class QuoteUpdate(CreateView):
+class QuoteUpdate(UpdateView):
     model = Quote
     fields = ['title', 'submitter', 'submitted_on', 'description']
 
@@ -30,5 +31,3 @@ class QuoteUpdate(CreateView):
 class QuoteDelete(DeleteView):
     model = Quote
     success_url = reverse_lazy('index')
-
-
