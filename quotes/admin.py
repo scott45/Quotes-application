@@ -3,4 +3,10 @@ from .models import Quote
 
 admin.autodiscover()
 
-admin.site.register(Quote)
+
+class QuoteAdmin(admin.ModelAdmin):
+    list_display = ('title', 'submitter', 'submitted_on')
+    search_fields = ['title']
+
+
+admin.site.register(Quote, QuoteAdmin)
