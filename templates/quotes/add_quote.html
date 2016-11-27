@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load staticfiles %}
+
+{% block title %}{{ quote_name }}{% endblock %}
+
+{% block body_block %}
+     <div style="text-align: center;">
+        <h1>Add Quote</h1>
+<br/>
+        <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+     </div>
+{% endblock %}
