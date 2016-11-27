@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>let's quote</title>
+    <title>phaneroo quotes</title>
 <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
 
-    <title>Quotes</title>
+    <title>phaneroo quotes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -22,14 +22,14 @@
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">LeT's QuotE thEm</a>
+                <a href="#" class="navbar-brand">PhAnErOo QuOteS</a>
             </div>
 
             <!-- Menu Items -->
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="{% url 'quote' %}">All quotes</a></li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search" method="get" action="#">
                 <div class="form-group">
@@ -37,19 +37,36 @@
                         <input type="text" class="form-control" name="q" value="">
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Search quote</button>
+                <button type="submit" class="btn btn-default">Search Quote</button>
             </form>
 
                 <!--right align -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'quote-add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Quote</a></li>
-                   <li> <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout</a></li>
+                    <li><a href="{% url 'add_quote' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Quote</a></li>
+                   <li> <a href="{% url 'logout_user' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout</a></li>
                 </ul>
 
             </div>
 
         </div>
     </nav>
-    </div>
+ <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h3>Phaneroo Quotes StOrE</h3>
+            <p> Add and Find quotes from phaneroo sermons  </p>
+          </div>
+        </div>
+      </div>
+</div>
+    {% block body_block %}{% endblock %}
+
+</div>
 </body>
 </html>
