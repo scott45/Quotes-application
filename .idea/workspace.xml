@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86505551-3d52-49a4-b638-23a69ac42463" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Scott Businge\PycharmProjects\Quote\templates\registration\base_visitor.html" afterPath="$PROJECT_DIR$/templates/base_visitor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/quotes/add_quote.html" afterPath="$PROJECT_DIR$/templates/quotes/add_quote.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/quotes/available_quote.html" afterPath="$PROJECT_DIR$/templates/quotes/available_quote.html" />
     </list>
     <ignored path="Quote.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,23 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_quote.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/quotes/add_quote.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66579634">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding>
-                <element signature="e#133#160#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="available_quote.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="available_quote.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/quotes/available_quote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7989556">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -82,7 +69,6 @@
         <option value="$PROJECT_DIR$/templates/quotes/form_template.html" />
         <option value="$PROJECT_DIR$/templates/quotes/detail.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/quotes/available_quote.html" />
         <option value="$PROJECT_DIR$/quotes/forms.py" />
         <option value="$PROJECT_DIR$/Quote/urls.py" />
         <option value="$PROJECT_DIR$/quotes/views.py" />
@@ -91,6 +77,7 @@
         <option value="$PROJECT_DIR$/templates/registration/base_visitor.html" />
         <option value="$PROJECT_DIR$/templates/registration/register.html" />
         <option value="$PROJECT_DIR$/templates/quotes/add_quote.html" />
+        <option value="$PROJECT_DIR$/templates/quotes/available_quote.html" />
       </list>
     </option>
   </component>
@@ -976,21 +963,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/quotes/available_quote.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/quotes/add_quote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66579634">
+        <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding>
             <element signature="e#133#160#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/quotes/available_quote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7989556">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
