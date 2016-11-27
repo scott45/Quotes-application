@@ -3,7 +3,7 @@ from .models import Quote
 from django.contrib.auth.models import User
 
 
-class StoreForm(forms.ModelForm):
+class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
         fields = ('title', 'description')
