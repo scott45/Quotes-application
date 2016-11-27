@@ -26,9 +26,9 @@ def add_quote(request):
 def quote(request):
     context_dict = {}
     context = RequestContext(request)
-    store_list = Quote.objects.all()
-    for store in store_list:
-        context_dict = {'stores': store_list}
+    quote_list = Quote.objects.all()
+    for quote in quote_list:
+        context_dict = {'quotes': quote_list}
     return render_to_response('quotes/available_quote.html', context_dict, context)
 
 
