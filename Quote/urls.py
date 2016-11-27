@@ -1,12 +1,14 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+
 from quotes import views
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
-                       url(r'^$', views.IndexView.as_view(), name='index'),
-                       url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-                       url(r'^quote/add/$', views.QuoteCreate.as_view(), name='quote-add'),
-                       url(r'^quote/(?P<pk>[0-9]+)/$', views.QuoteUpdate.as_view(), name='quote-update'),
-                       url(r'^quote/(?P<pk>[0-9]+)/delete/$', views.QuoteDelete.as_view(), name='quote-delete'),
+                       url(r'^register/$', views.register, name='register'),
+                       url(r'^$', views.login_user, name='login_user'),
+                       url(r'^logout_user/$', views.logout_user, name='logout_user'),
+                       url(r'^index/$', views.index, name='index'),
+                       url(r'^add_quote/$', views.add_quote, name='add_quote'),
+                       url(r'^quote/$', views.quote, name='quote'),
                        )
