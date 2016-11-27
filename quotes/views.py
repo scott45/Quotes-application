@@ -1,33 +1,74 @@
-from django.views import generic
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Quote
-from django.core.urlresolvers import reverse_lazy
+from django.template import RequestContext
+from .forms import QuoteForm, UserForm
+from django.shortcuts import render_to_response
+
+from django.contrib.auth import authenticate
+from django.contrib.auth import logout
+from django.shortcuts import render
 
 
-class IndexView(generic.ListView):
-    template_name = "index.html"
-    context_object_name = "all_quotes"
-
-    def get_queryset(self):
-        return Quote.objects.all()
+def index(request):
+    return render(request, 'index.html')
 
 
-class DetailView(generic.DetailView):
-    model = Quote
-    template_name = "quotes/detail.html"
+def add_quote(request):
+    if request.method == "POST":
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+    else:
+        form = QuoteForm()
+    return render(request, 'quotes/add_quote.html', {'form': form})
 
 
-class QuoteCreate(CreateView):
-    model = Quote
-    fields = ['title', 'submitter', 'description']
-    template_name = 'quotes/quotes_form.html'
+def quote(request):
+    context_dict = {}
+    context = RequestContext(request)
+    store_list = Quote.objects.all()
+    for store in store_list:
+        context_dict = {'stores': store_list}
+    return render_to_response('quotes/available_quote.html', context_dict, context)
 
 
-class QuoteUpdate(UpdateView):
-    model = Quote
-    fields = ['title', 'submitter', 'description']
+def logout_user(request):
+    logout(request)
+    form = UserForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    return render(request, 'registration/login.html', context)
 
 
-class QuoteDelete(DeleteView):
-    model = Quote
-    success_url = reverse_lazy('index')
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                return render(request, 'index.html')
+            else:
+                return render(request, 'registration/login.html', {'error_message': 'Your account has been disabled'})
+        else:
+            return render(request, 'registration/login.html', {'error_message': 'Invalid login'})
+    return render(request, 'registration/login.html')
+
+
+def register(request):
+    form = UserForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                return render(request, 'index.html')
+    context = {
+        "form": form,
+    }
+    return render(request, 'registration/register.html', context)
