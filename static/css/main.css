@@ -12,7 +12,7 @@ html, body {
 
 html {
     color: #111;
-    background: #eee;
+    background: blanchedalmond;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #FF0031;
+    color: greenyellow;
 }
 
 h1 {
@@ -35,14 +35,14 @@ h1 {
 }
 
 a {
-    background: #FFFF00;
+    background: bottom;
     color: #00399C;
     text-decoration: none;
 }
 
 h2 a {
     background: transparent;
-    color: #FF0031;
+    color: orange;
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"]
